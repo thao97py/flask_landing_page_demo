@@ -7,6 +7,9 @@
     <title>Landing Page Assignment </title>
 </head>
 <body>
-    <h1>Hello {{name}}</h1>
+    <h1>Hello {{ name }}</h1>
+    {% if email %}
+        <h1>Your email is: {{ email }}</h1>
+    {% endif %}
 </body>
 </html>
