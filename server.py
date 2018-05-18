@@ -4,14 +4,18 @@ app = Flask(__name__)
 def greeting():
     return render_template('index.html', name = 'World')
 
-@app.route('/dojos/new',methods=['GET','POST'])
+@app.route('/dojos/new')
 def dojos():
-    name = request.form["name"]
-    email = request.form["email"]
-    return redirect('/')
+    print "Got Post info"
+    return render_template('dojos.html')
+
+@app.route('/new/users', methods=['POST'])
+def create_user():
+    name = request.form('name')
+    email = request.form('email')
+    return redirect('/new')
 
 @app.route('/ninjas')
 def info_ninja():
     return render_template('ninjas.html', name='Ninja Thao')
-
 app.run(debug=True)
